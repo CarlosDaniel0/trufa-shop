@@ -11,7 +11,7 @@ const options = {
   ca: fs.readFileSync('./ca-gerencianet.crt'), // GerenciaNet
   minVersion: 'TLSv1.2',
   requestCert: true,
-  rejectUnauthoraized: false,
+  rejectUnauthorized: false,
 }
 
 const server = https.createServer(options, app)
