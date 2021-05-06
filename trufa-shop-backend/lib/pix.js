@@ -109,7 +109,7 @@ const createPixCharge = async (order) => {
   return { qrcode, cobranca }
 }
 
-const createWebhook = async (order) => {
+const createWebhook = async () => {
   const chave = process.env.CHAVE_PIX
   const token = await getToken()
   const accessToken = token.access_token
