@@ -15,4 +15,7 @@ const options = {
 }
 
 const server = https.createServer(options, app)
+console.log(
+  'This server is running... \n\tPort: 443\n\tTo Access: https://trufashop.cloudns.cl'
+)
 server.listen(443)
