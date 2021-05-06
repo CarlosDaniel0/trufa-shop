@@ -1,4 +1,5 @@
 require('dotenv').config({ path: '../.env.producao' })
+const { createWebhook } = require('./lib/pix')
 const https = require('https')
 const fs = require('fs')
 const app = require('./app')
@@ -15,7 +16,12 @@ const options = {
 }
 
 const server = https.createServer(options, app)
-console.log(
-  'This server is running... \n\tPort: 443\n\tTo Access: https://trufashop.cloudns.cl'
-)
-server.listen(443)
+server.listen(443, () => {
+  console.log(
+    'This server is running... \n\tPort: 443\n\tTo Access: https://trufashop.cloudns.cl'
+  )
+  console.log('creating webhook for pix')
+  createWebhook().then(() => {
+    console.log('Webhook created!')
+  })
+})
